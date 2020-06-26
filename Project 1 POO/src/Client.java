@@ -1,23 +1,19 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Client extends User{
 
-	private direction[] addresses;
-	private feedingType[] foodProfile;
+	private List<Direction> addresses = new ArrayList<>();
+	private List<String[]> foodProfile = new ArrayList<>();
 	
 	public Client(String name, String password) {
-		super(name, password, 3);
+		super(name, password);
 	}
 	
-	public void addAdress() {
-		String name; 
-		addresses += direction(name);
+	public void addAdress(String name, int lat, int lon) {
+		Direction na = new Direction(name, lat, lon);
+		this.addresses.add(na);
 	}
 
-	@Override
-	public void signIn(String name, String password) {
-	}
-
-	@Override
-	public void lognIn(String name, String password) {
-	}
 }
+

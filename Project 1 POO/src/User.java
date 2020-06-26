@@ -1,15 +1,14 @@
 
-public abstract class User implements Register{
+public abstract class User{
 
-		private String name;
-		private String password;
-		private int type;
-		
-		public User(String name, String password, int type) {
-			super();
-			this.name = name;
-			this.password = password;
-			this.type = type;
-		}
-		
+	private String name;
+	private String password;
+	
+	public User(String name, String password) {
+		super();
+		this.name = name;
+		this.password = password;
+	}
+
 }
+
