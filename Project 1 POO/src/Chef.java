@@ -5,4 +5,16 @@ public class Chef extends User{
 		super(name, password);
 	}
 	
+	public void addDish() {
+		
+	}
+	
+	public void seeInventary() {
+		
+	}
+	
+	public void addToInventary() {
+		
+	} 
+	
 }

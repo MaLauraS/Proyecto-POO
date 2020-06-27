@@ -1,0 +1,68 @@
+{
+  "Inventory": {
+    "Onion": 8,
+    "Bacon": 1,
+    "Eggs": 12,
+    "Tomato": 7,
+    "Lettuce": 5,
+    "Meat": 3,
+    "Fish": 4,
+    "Garlic": 6,
+    "Coriander": 2,
+    "Pasta": 9,
+    "Oil": 5,
+    "Rise": 10,
+    "Beans": 11,
+    "Pepper": 6,
+    "Tuna": 4,
+    "SodaCrackers": 7,
+    "LizanoSauce": 3,
+    "Salt": 2,
+    "Sugar": 1,
+    "Butter": 3
+  },
+  "Dishes": {
+    "GalloPinto": {
+      beans: 10,
+      rise: 20
+    },
+    "GarlicFish": {
+      "Fish": 1,
+      "Garlic": 3
+    },
+    "BaconAndEggs": {
+      "Bacon": 4,
+      "Eggs": 4
+    },
+    "SodaWithTuna": {
+      "SodaCrackers": 1,
+      "Tuna": 1
+    },
+    "RiseAndBeans": {
+      "Rise": 1,
+      "Beans": 1
+    },
+    "Salad": {
+      "Lettuce": 1,
+      "Tomato": 2
+    },
+    "SpaghettiWithMeatballs": {
+      "Pasta": 1,
+      "Meat": 3
+    },
+    "Food8": {
+      
+    },
+    "Food9": {
+      
+    },
+    "Food10": {
+      
+    }
+  },
+  "Users": {
+    "client1": "1234",
+    "chef": "4321",
+    "admi": "admi"
+  }
+}

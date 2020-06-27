@@ -13,6 +13,12 @@ public class Client extends User{
 	public void addAdress(String name, int lat, int lon) {
 		Direction na = new Direction(name, lat, lon);
 		this.addresses.add(na);
+		
+	}
+	
+	public void addFoodProfile(String[] type) {
+		this.foodProfile.add(type);
+		
 	}
 
 }
