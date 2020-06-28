@@ -1,5 +1,5 @@
 
-public abstract class User{
+public class User{
 
 	private String name;
 	private String password;
@@ -8,6 +8,14 @@ public abstract class User{
 		super();
 		this.name = name;
 		this.password = password;
+	}
+
+	public String getName() {
+		return name;
+	}
+	
+	public String getPassword() {
+		return password;
 	}
 
 }

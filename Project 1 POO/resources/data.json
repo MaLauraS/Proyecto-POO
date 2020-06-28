@@ -1,68 +1,268 @@
 {
-  "Inventory": {
-    "Onion": 8,
-    "Bacon": 1,
-    "Eggs": 12,
-    "Tomato": 7,
-    "Lettuce": 5,
-    "Meat": 3,
-    "Fish": 4,
-    "Garlic": 6,
-    "Coriander": 2,
-    "Pasta": 9,
-    "Oil": 5,
-    "Rise": 10,
-    "Beans": 11,
-    "Pepper": 6,
-    "Tuna": 4,
-    "SodaCrackers": 7,
-    "LizanoSauce": 3,
-    "Salt": 2,
-    "Sugar": 1,
-    "Butter": 3
-  },
-  "Dishes": {
-    "GalloPinto": {
-      beans: 10,
-      rise: 20
+  "Inventory": [
+    {
+      "ingredient": "Onion",
+      "amount": 10
     },
-    "GarlicFish": {
-      "Fish": 1,
-      "Garlic": 3
+    {
+      "ingredient": "Bacon",
+      "amount": 10
     },
-    "BaconAndEggs": {
-      "Bacon": 4,
-      "Eggs": 4
+    {
+      "ingredient": "Eggs",
+      "amount": 10
     },
-    "SodaWithTuna": {
-      "SodaCrackers": 1,
-      "Tuna": 1
+    {
+      "ingredient": "Tomato",
+      "amount": 10
     },
-    "RiseAndBeans": {
-      "Rise": 1,
-      "Beans": 1
+    {
+      "ingredient": "Lettuce",
+      "amount": 10
     },
-    "Salad": {
-      "Lettuce": 1,
-      "Tomato": 2
+    {
+      "ingredient": "Meat",
+      "amount": 10
     },
-    "SpaghettiWithMeatballs": {
-      "Pasta": 1,
-      "Meat": 3
+    {
+      "ingredient": "Fish",
+      "amount": 10
     },
-    "Food8": {
-      
+    {
+      "ingredient": "Garlic",
+      "amount": 10
     },
-    "Food9": {
-      
+    {
+      "ingredient": "Coriander",
+      "amount": 10
     },
-    "Food10": {
-      
+    {
+      "ingredient": "Pasta",
+      "amount": 10
+    },
+    {
+      "ingredient": "Oil",
+      "amount": 10
+    },
+    {
+      "ingredient": "Rise",
+      "amount": 10
+    },
+    {
+      "ingredient": "Beans",
+      "amount": 10
+    },
+    {
+      "ingredient": "Pepper",
+      "amount": 10
+    },
+    {
+      "ingredient": "Tuna",
+      "amount": 10
+    },
+    {
+      "ingredient": "SodaCrackers",
+      "amount": 10
+    },
+    {
+      "ingredient": "LizanoSauce",
+      "amount": 10
+    },
+    {
+      "ingredient": "Salt",
+      "amount": 10
+    },
+    {
+      "ingredient": "Sugar",
+      "amount": 10
+    },
+    {
+      "ingredient": "Butter",
+      "amount": 10
+    },
+    {
+      "ingredient": "Milk",
+      "amount": 10
+    },
+    {
+      "ingredient": "Bread",
+      "amount": 10
+    },
+    {
+      "ingredient": "Potato",
+      "amount": 10
     }
-  },
-  "Users": {
-    "client1": "1234",
-    "chef": "4321",
-    "admi": "admi"
-  }
+  ],
+  "Dishes": [
+    {
+      "dish": "Gallo Pinto",
+      "recipe": "bla bla bla",
+      "ingredients": [
+        {
+          "ingredient": "Rise",
+          "amount": 1
+        },
+        {
+          "ingredient": "Beans",
+          "amount": 1
+        },
+        {
+          "ingredient": "LizanoSauce",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "dish": "Garlic Fish",
+      "recipe": "bla bla bla",
+      "ingredients": [
+        {
+          "ingredient": "Fish",
+          "amount": 1
+        },
+        {
+          "ingredient": "Garlic",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "dish": "Bacon and Eggs",
+      "recipe": "bla bla bla",
+      "ingredients": [
+        {
+          "ingredient": "Bacon",
+          "amount": 1
+        },
+        {
+          "ingredient": "Eggs",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "dish": "Soda with Tuna",
+      "recipe": "bla bla bla",
+      "ingredients": [
+        {
+          "ingredient": "SodaCrackers",
+          "amount": 1
+        },
+        {
+          "ingredient": "Tuna",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "dish": "Rise and Beans",
+      "recipe": "bla bla bla",
+      "ingredients": [
+        {
+          "ingredient": "Rise",
+          "amount": 1
+        },
+        {
+          "ingredient": "Beans",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "dish": "Salad",
+      "recipe": "bla bla bla",
+      "ingredients": [
+        {
+          "ingredient": "Lettuce",
+          "amount": 1
+        },
+        {
+          "ingredient": "Tomato",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "dish": "Spaghetti with Meatballs",
+      "recipe": "bla bla bla",
+      "ingredients": [
+        {
+          "ingredient": "Pasta",
+          "amount": 1
+        },
+        {
+          "ingredient": "Meat",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "dish": "Pancake",
+      "recipe": "bla bla bla",
+      "ingredients": [
+        {
+          "ingredient": "Eggs",
+          "amount": 1
+        },
+        {
+          "ingredient": "Milk",
+          "amount": 1
+        },
+        {
+          "ingredient": "Oil",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "dish": "Sandwich",
+      "recipe": "bla bla bla",
+      "ingredients": [
+        {
+          "ingredient": "Eggs",
+          "amount": 1
+        },
+        {
+          "ingredient": "Bread",
+          "amount": 1
+        },
+        {
+          "ingredient": "Tomato",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "dish": "Mashed Potatoes",
+      "recipe": "bla bla bla",
+      "ingredients": [
+        {
+          "ingredient": "Potato",
+          "amount": 1
+        },
+        {
+          "ingredient": "Milk",
+          "amount": 1
+        },
+        {
+          "ingredient": "Butter",
+          "amount": 1
+        }
+      ]
+    }
+  ],
+  "Users": [
+    {
+      "user": "client1",
+      "password": "1234"
+    },
+    {
+      "user": "chef",
+      "password": "4321"
+    },
+    {
+      "user": "admi",
+      "password": "admi"
+    }
+  ]
 }
