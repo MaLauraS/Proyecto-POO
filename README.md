@@ -15,19 +15,24 @@ notas según los distintos actores identificados:
 Cliente
 
 	1. Registrarse como Cliente.
+	
 	2. Ingresar al Sistema con nombre de usuario y contraseña.
+	
 	3. Ver un menú de opciones a realizar.
+	
 	4. Registrarse direcciones para recibir pedidos.
 		a. Nombre (ejemplo Casa)
 		b. Latitud
 		c. Longitud.
-	5.Completar Perfil Alimentario. Consiste en una serie de posibles necesidades/gustos 		especiales de cada cliente, por ejemplo:
+		
+	5.Completar Perfil Alimentario. Consiste en una serie de posibles necesidades/gustos especiales de cada cliente, por ejemplo:
 		a. Vegan@.
 		b. Vegetariano@.
 		c. Libre de Gluten.
 		d. Halal.
 		e. Kosher.
 		f. Alergias o intolerancias a ingredientes.
+		
 	6. Solicitar menú del día y ver detalle de la orden (precio a pagar)
 		a. Indicar si se quiere proceder con la orden de compra de ese menú o no.
 
@@ -36,9 +41,9 @@ Cociner@
 	1. Registrarse como Cociner@.
 	2. Ingresar al Sistema con nombre de usuario y contraseña.
 	3. Ver un menú de opciones a realizar.
-	4. Agregar platillos al sistema. Los platillos pueden ser entradas, platos principales, 		postres y bebidas.
+	4. Agregar platillos al sistema. Los platillos pueden ser entradas, platos principales, postres y bebidas.
 	
-	Cada platillo indica sus ingredientes, la cantidad por unidad y las instrucciones de 		preparación, como muestra el siguiente ejemplo.
+	Cada platillo indica sus ingredientes, la cantidad por unidad y las instrucciones de preparación, como muestra el siguiente ejemplo.
 	
 	Spaghetti al Burro.
 		- Spaghetti 50 gramos.
@@ -46,17 +51,21 @@ Cociner@
 		- Salvia blanca 15 hojas.
 		- Limón 1 unidad.
 		- Sal 1 pizca.
-	Hervir agua, salar y cocinar spaghetti. Freír salvia en la mantequilla. Servir salvia sobre 	spaghetti y agregar jugo de limón.
+	Hervir agua, salar y cocinar spaghetti. Freír salvia en la mantequilla. Servir salvia sobre spaghetti y agregar jugo de limón.
 	
 	5. Ver inventario de ingredientes.
-	6. Agregar ingrediente y cantidad disponible al inventario. Así como el costo según la 		unidad (kilogramo, unidad, cucharada,etc). 
+	
+	6. Agregar ingrediente y cantidad disponible al inventario. Así como el costo según la unidad (kilogramo, unidad, cucharada,etc). 
 	
 	
 Administrador(a)
 
 	1. Registrarse como Administrador(a).
+	
 	2. Ingresar al Sistema con nombre de usuario y contraseña.
+	
 	3. Ver un menú de opciones a realizar.
+	
 	4. Agregar ingrediente al inventario con su respectivo costo, cantidad y unidad.
 	
 	
@@ -64,10 +73,10 @@ Sistema
 
 	- Almacenar información de usuarios.
 	- Ofrecer un menú general, con las opciones de ingreso y registro.
-	- Al realizarse el registro de un usuario, la contraseña deberá cifrarse con EncoderBase64​ 		de Java antes de almacenarse.
-	- Al intentar ingresar al sitio se deberá comparar la contraseña con aquella almacenada. 		(considerar el cifrado).
-	- Generar una opción de menú para el cliente que solicite, esto tomando en cuenta el perfil 	alimentario del cliente. Por ejemplo, no se podrá incluir en los menús de un cliente vegano, 		platillos con ingredientes de origen animal, ni tampoco ningún platillo con tomate, a un 		cliente que sea alérgico al mismo.
-	- Calcular el precio a pagar de la orden de compra del menú, tomando en cuenta la suma del 		precio de cada ingrediente según su cantidad, más 35% de ganancia dela plataforma y un 13% de 		I.V.A
+	- Al realizarse el registro de un usuario, la contraseña deberá cifrarse con EncoderBase64 de Java antes de almacenarse.
+	- Al intentar ingresar al sitio se deberá comparar la contraseña con aquella almacenada. (considerar el cifrado).
+	- Generar una opción de menú para el cliente que solicite, esto tomando en cuenta el perfil alimentario del cliente. Por ejemplo, no se podrá incluir en 	los menús de un cliente vegano, platillos con ingredientes de origen animal, ni tampoco ningún platillo con tomate, a un cliente que sea alérgico al mismo.
+	- Calcular el precio a pagar de la orden de compra del menú, tomando en cuenta la suma del precio de cada ingrediente según su cantidad, más 35% de 		ganancia dela plataforma y un 13% de I.V.A
 
 
 Modelado con UML
@@ -83,6 +92,4 @@ A partir de los diagramas realizados, escriba un programa en Java SE versión 8 
 Video Explicativo
 
 Una vez finalizados sus diagramas en formato UML y todas las clases necesarias para que el sistema funcione. Realice un video, capturando la pantalla de su computadora. Primero explique el diagrama de clases y después haga un recorrido por el código explicándolo también. Finalmente muestre una ejecución exitosa del código. El video deberá ser de entre 5 y 10 minutos. Cada estudiante deberá realizar su propio video y publicarlo a través de YouTube.
-
-
 
