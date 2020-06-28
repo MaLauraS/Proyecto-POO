@@ -27,7 +27,7 @@ public class JSONParser {
 	}
 	
 	
-	public Inventory loadInventary() {
+	public Inventory loadInventory() {
 		Inventory inventory = new Inventory();
 		ArrayNode ingredients = (ArrayNode) node.get("Inventory");
 		
@@ -35,9 +35,10 @@ public class JSONParser {
 			for(int i=0; i<ingredients.size(); i++) {
 				JsonNode ingredient = ingredients.get(i);
 				String name = ingredient.get("ingredient").asText();
-				int amount = ingredient.get("amount").asInt(); 
+				float amount = ingredient.get("amount").asLong(); 
+				float price = ingredient.get("price").asLong(); 
 				
-				Ingredient ingre = new Ingredient(name, amount);
+				Ingredient ingre = new Ingredient(name, amount, price);
 				inventory.add(ingre);
 			}
 		}
@@ -59,9 +60,10 @@ public class JSONParser {
 					for(int j=0; j<ingredients.size(); j++) {
 						JsonNode ingredient = ingredients.get(j);
 						String nick = ingredient.get("ingredient").asText();
-						int amount = ingredient.get("amount").asInt(); 
+						float amount = ingredient.get("amount").asLong(); 
+						float price = ingredient.get("price").asLong(); 
 						
-						Ingredient ingre = new Ingredient(name, amount);
+						Ingredient ingre = new Ingredient(nick, amount, price);
 						inventory.add(ingre);
 					}
 				}
@@ -82,8 +84,9 @@ public class JSONParser {
 				JsonNode user = nodeuser.get(i);
 				String name = user.get("user").asText();
 				String password = user.get("password").asText();
+				String type = user.get("type").asText();
 				
-				User nUser = new User(name, password);
+				User nUser = new User(name, password, type);
 				users.add(nUser);
 			}
 		}

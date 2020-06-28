@@ -2,28 +2,36 @@
 public class Ingredient {
 
 	private String name;
-	private int amount;
+	private float amount;
+	private float price;
 	
-	public Ingredient(String name, int amount) {
+	public Ingredient(String name, float amount, float price) {
 		super();
 		this.name = name;
 		this.amount = amount;
+		this.price = price;
 	}
 
-	public String seeIngredient() {
+	public String getIngredient() {
 		return name;
 	}
 	
-	public int seeAmount() {
+	public float getAmount() {
 		return amount;
 	}
 	
-	public void getAmount(int amount) {
+	public float getPrice() {
+		return price;
+	}
+	
+	public void takeAmount(float amount) {
 		this.amount -= amount;
 	}
 
-	public void addAmount(int amount) {
+	public void addAmount(float amount) {
 		this.amount += amount;
 	}	
+	
+	
 		
 }

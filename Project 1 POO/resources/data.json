@@ -2,95 +2,118 @@
   "Inventory": [
     {
       "ingredient": "Onion",
-      "amount": 10
+      "amount": 10,
+      "price": 1.99
     },
     {
       "ingredient": "Bacon",
-      "amount": 10
+      "amount": 10,
+      "price": 1.99
     },
     {
-      "ingredient": "Eggs",
-      "amount": 10
+      "ingredient": "Egg",
+      "amount": 10,
+      "price": 1.99
     },
     {
       "ingredient": "Tomato",
-      "amount": 10
+      "amount": 10,
+      "price": 1.99
     },
     {
       "ingredient": "Lettuce",
-      "amount": 10
+      "amount": 10,
+      "price": 1.99
     },
     {
       "ingredient": "Meat",
-      "amount": 10
+      "amount": 10,
+      "price": 1.99
     },
     {
       "ingredient": "Fish",
-      "amount": 10
+      "amount": 10,
+      "price": 1.99
     },
     {
       "ingredient": "Garlic",
-      "amount": 10
+      "amount": 10,
+      "price": 1.99
     },
     {
       "ingredient": "Coriander",
-      "amount": 10
+      "amount": 10,
+      "price": 1.99
     },
     {
       "ingredient": "Pasta",
-      "amount": 10
+      "amount": 10,
+      "price": 1.99
     },
     {
       "ingredient": "Oil",
-      "amount": 10
+      "amount": 10,
+      "price": 1.99
     },
     {
       "ingredient": "Rise",
-      "amount": 10
+      "amount": 10,
+      "price": 1.99
     },
     {
-      "ingredient": "Beans",
-      "amount": 10
+      "ingredient": "Bean",
+      "amount": 10,
+      "price": 1.99
     },
     {
       "ingredient": "Pepper",
-      "amount": 10
+      "amount": 10,
+      "price": 1.99
     },
     {
       "ingredient": "Tuna",
-      "amount": 10
+      "amount": 10,
+      "price": 1.99
     },
     {
-      "ingredient": "SodaCrackers",
-      "amount": 10
+      "ingredient": "SodaCracker",
+      "amount": 10,
+      "price": 1.99
     },
     {
       "ingredient": "LizanoSauce",
-      "amount": 10
+      "amount": 10,
+      "price": 1.99
     },
     {
       "ingredient": "Salt",
-      "amount": 10
+      "amount": 10,
+      "price": 1.99
     },
     {
       "ingredient": "Sugar",
-      "amount": 10
+      "amount": 10,
+      "price": 1.99
     },
     {
       "ingredient": "Butter",
-      "amount": 10
+      "amount": 10,
+      "price": 1.99
     },
     {
       "ingredient": "Milk",
-      "amount": 10
+      "amount": 10,
+      "price": 1.99
     },
     {
       "ingredient": "Bread",
-      "amount": 10
+      "amount": 10,
+      "price": 1.99
     },
     {
       "ingredient": "Potato",
-      "amount": 10
+      "amount": 10,
+      "price": 1.99
     }
   ],
   "Dishes": [
@@ -100,15 +123,18 @@
       "ingredients": [
         {
           "ingredient": "Rise",
-          "amount": 1
+          "amount": 1,
+          "price": 0.99
         },
         {
-          "ingredient": "Beans",
-          "amount": 1
+          "ingredient": "Bean",
+          "amount": 1,
+          "price": 0.99
         },
         {
           "ingredient": "LizanoSauce",
-          "amount": 1
+          "amount": 1,
+          "price": 0.99
         }
       ]
     },
@@ -118,11 +144,13 @@
       "ingredients": [
         {
           "ingredient": "Fish",
-          "amount": 1
+          "amount": 1,
+          "price": 0.99
         },
         {
           "ingredient": "Garlic",
-          "amount": 1
+          "amount": 1,
+          "price": 0.99
         }
       ]
     },
@@ -132,11 +160,13 @@
       "ingredients": [
         {
           "ingredient": "Bacon",
-          "amount": 1
+          "amount": 1,
+          "price": 0.99
         },
         {
-          "ingredient": "Eggs",
-          "amount": 1
+          "ingredient": "Egg",
+          "amount": 1,
+          "price": 0.99
         }
       ]
     },
@@ -145,12 +175,14 @@
       "recipe": "bla bla bla",
       "ingredients": [
         {
-          "ingredient": "SodaCrackers",
-          "amount": 1
+          "ingredient": "SodaCracker",
+          "amount": 1,
+          "price": 0.99
         },
         {
           "ingredient": "Tuna",
-          "amount": 1
+          "amount": 1,
+          "price": 0.99
         }
       ]
     },
@@ -160,11 +192,13 @@
       "ingredients": [
         {
           "ingredient": "Rise",
-          "amount": 1
+          "amount": 1,
+          "price": 0.99
         },
         {
-          "ingredient": "Beans",
-          "amount": 1
+          "ingredient": "Bean",
+          "amount": 1,
+          "price": 0.99
         }
       ]
     },
@@ -174,11 +208,13 @@
       "ingredients": [
         {
           "ingredient": "Lettuce",
-          "amount": 1
+          "amount": 1,
+          "price": 0.99
         },
         {
           "ingredient": "Tomato",
-          "amount": 1
+          "amount": 1,
+          "price": 0.99
         }
       ]
     },
@@ -188,11 +224,13 @@
       "ingredients": [
         {
           "ingredient": "Pasta",
-          "amount": 1
+          "amount": 1,
+          "price": 0.99
         },
         {
           "ingredient": "Meat",
-          "amount": 1
+          "amount": 1,
+          "price": 0.99
         }
       ]
     },
@@ -201,16 +239,19 @@
       "recipe": "bla bla bla",
       "ingredients": [
         {
-          "ingredient": "Eggs",
-          "amount": 1
+          "ingredient": "Egg",
+          "amount": 1,
+          "price": 0.99
         },
         {
           "ingredient": "Milk",
-          "amount": 1
+          "amount": 1,
+          "price": 0.99
         },
         {
           "ingredient": "Oil",
-          "amount": 1
+          "amount": 1,
+          "price": 0.99
         }
       ]
     },
@@ -219,16 +260,19 @@
       "recipe": "bla bla bla",
       "ingredients": [
         {
-          "ingredient": "Eggs",
-          "amount": 1
+          "ingredient": "Egg",
+          "amount": 1,
+          "price": 0.99
         },
         {
           "ingredient": "Bread",
-          "amount": 1
+          "amount": 1,
+          "price": 0.99
         },
         {
           "ingredient": "Tomato",
-          "amount": 1
+          "amount": 1,
+          "price": 0.99
         }
       ]
     },
@@ -238,15 +282,18 @@
       "ingredients": [
         {
           "ingredient": "Potato",
-          "amount": 1
+          "amount": 1,
+          "price": 0.99
         },
         {
           "ingredient": "Milk",
-          "amount": 1
+          "amount": 1,
+          "price": 0.99
         },
         {
           "ingredient": "Butter",
-          "amount": 1
+          "amount": 1,
+          "price": 0.99
         }
       ]
     }
@@ -254,15 +301,18 @@
   "Users": [
     {
       "user": "client1",
-      "password": "1234"
+      "password": "1234",
+      "type": "client"
     },
     {
       "user": "chef",
-      "password": "4321"
+      "password": "4321",
+      "type": "chef"
     },
     {
       "user": "admi",
-      "password": "admi"
+      "password": "admi",
+      "type": "admi"
     }
   ]
 }
