@@ -58,7 +58,9 @@ public class Sistema {
   }
 
   public void CompletarPerfilAlimentario(int food, User usuario, String alergia){
+	  
     switch(food){
+    
       case 1:
       //Vegano
       getUser(usuario.GetName()).AddFoodProfile("Queso");
@@ -71,6 +73,7 @@ public class Sistema {
       getUser(usuario.GetName()).AddFoodProfile("Pollo");
       getUser(usuario.GetName()).AddFoodProfile("Marisco");
       break;
+      
       case 2:
       //Vegetariano
       getUser(usuario.GetName()).AddFoodProfile("Gelatina");
@@ -80,6 +83,7 @@ public class Sistema {
       getUser(usuario.GetName()).AddFoodProfile("Pollo");
       getUser(usuario.GetName()).AddFoodProfile("Marisco");
       break;
+      
       case 3:
       //Gluten
       getUser(usuario.GetName()).AddFoodProfile("Trigo");
@@ -91,16 +95,19 @@ public class Sistema {
       getUser(usuario.GetName()).AddFoodProfile("Triticale");
       getUser(usuario.GetName()).AddFoodProfile("Escanda");
       break;
+      
       case 4:
       //Halal
       getUser(usuario.GetName()).AddFoodProfile("Cerdo");
       getUser(usuario.GetName()).AddFoodProfile("Alcohol");
       break;
+      
       case 5:
       //Kosher
       getUser(usuario.GetName()).AddFoodProfile("Cerdo");
       getUser(usuario.GetName()).AddFoodProfile("Marisco");
       break;
+      
       case 6:
       getUser(usuario.GetName()).AddFoodProfile(alergia);
       break;
