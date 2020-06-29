@@ -20,7 +20,7 @@ public class Syst{
 	
 	
 	public boolean lognIn(String name, String password) {
-		if(getUser(name) != null && getUser(name).getPassword() == password){
+		if(getUser(name) != null && getUser(name).getPassword() == password) {
 			return true;
 		} else {
 		    return false;
@@ -28,19 +28,9 @@ public class Syst{
 	}	
 	
 	
-	public User getUser(String name) {
-		for(int i=0; i<users.size(); i++) {
-			if(users.get(i).getName() == name) {
-				return users.get(i);
-			}
-		}		
-		return null;
-	}
-	
-	
 	public void RegisterAddress(String name, float latitude, float longitude, User user){
-		Direction direction = new Direction(name, latitude, longitude);
-		user.AddDirection(direction);
+		Address address = new Address(name, latitude, longitude);
+		user.AddDirection(address);
 	}
 	
 
@@ -106,9 +96,9 @@ public class Syst{
 
 	    for(int j=0; j< foodProfile.size(); j++) {
 	    	int b = 0;
-	    	while(auxDish.get(b) != null){
+	    	while(b < auxDish.size()) {
 		        for(int c=0; c<auxDish.get(b).getIngredients().size(); c++) {
-		        	if(auxDish.get(b).getIngredients().get(c).getIngredient() == foodProfile.get(j)){
+		        	if(auxDish.get(b).getIngredients().get(c).getIngredient().equals(foodProfile.get(j))){
 		        		auxDish.remove(b);
 		        		b--;
 		        		break;
@@ -121,17 +111,30 @@ public class Syst{
 	}
 
 
-	  public void addDish(Dish dish){
-	    dishes.add(dish);
-	  }
+	public void setDish(Dish dish){
+		dishes.add(dish);
+	}
 
 	  
-	  public Inventory seeInventory(){
-	    return inventory;
-	  }
+    public Inventory getInventory(){
+    	return inventory;
+    }
 
-	  
-	  public void addIngredient(Ingredient ingredient){
-		  inventory.add(ingredient);
-	  }
+  
+    public void setIngredient(Ingredient ingredient){
+    	inventory.add(ingredient);
+    }
+  
+    public User getUser(String name) {		  
+    	for(int i=0; i<users.size(); i++) {
+    		if(users.get(i).getName() == name) {
+    			return users.get(i);
+    		}
+    	}		
+    	return null;
+    }
+    
+    public Users getUsers() {
+    	return users;
+	}
 }

@@ -300,19 +300,19 @@
   ],
   "Users": [
     {
-      "user": "client1",
+      "user": "customer1",
       "password": "1234",
-      "type": "client"
+      "type": "Customer"
     },
     {
       "user": "chef",
       "password": "4321",
-      "type": "chef"
+      "type": "Chef"
     },
     {
       "user": "admi",
       "password": "admi",
-      "type": "admi"
+      "type": "Admi"
     }
   ]
 }

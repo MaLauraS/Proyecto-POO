@@ -12,8 +12,6 @@ public class Dish {
 		this.recipe = recipe;
 		this.ingredients = ingredients;
 	}
-
-	//ADD calculatePrice(Inventory ingredients)
 	
 	public String getName() {
 		return name;
@@ -38,6 +36,13 @@ public class Dish {
 	public void setIngredients(Inventory ingredients) {
 		this.ingredients = ingredients;
 	}
-	
+		
+	public float getPrice(Inventory inventory) {
+		float cost = 0;
+		for(int i=0; i<inventory.size(); i++) {
+			cost += inventory.get(i).getPrice() * inventory.get(i).getAmount();
+		}
+		return cost;
+	}
 	
 }

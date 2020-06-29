@@ -6,7 +6,7 @@ public class User{
 	private String name;
 	private String password;
 	private String type;
-	private List<Direction> adresses = new ArrayList<>();
+	private List<Address> adresses = new ArrayList<>();
 	private List<String> foodProfile = new ArrayList<>();
 	
 	public User(String name, String password, String type) {
@@ -14,6 +14,10 @@ public class User{
 		this.name = name;
 		this.password = password;
 		this.type = type;
+	}
+
+	public User() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getName() {
@@ -28,7 +32,7 @@ public class User{
 		return type;
 	 }
 	 
-	 public List<Direction> GetDirections() {
+	 public List<Address> GetDirections() {
 	    return adresses;
 	  }
 
@@ -36,7 +40,7 @@ public class User{
 	    return foodProfile;
 	  }
 
-	  public void AddDirection(Direction dir) {
+	  public void AddDirection(Address dir) {
 	    adresses.add(dir);
 	  }
 
