@@ -3,13 +3,13 @@ import java.util.List;
 
 public class Direction{
   private String name;
-  private float longitude;
-  private float latitude;
+  private String longitud;
+  private String latitude;
 
-  public Direction(String name, float latitude, float longitude) {
+  public Direction(String name, String latitude, String longitud) {
 		this.name = name;
 		this.latitude = latitude;
-		this.longitude = longitude;
+		this.longitud= longitud;
 	}
 
 }

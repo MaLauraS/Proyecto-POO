@@ -52,7 +52,7 @@ public class Sistema {
     return users;
   }
 
-  public void RegistrarDireccion(String name, float latitud, float longitud, User usuario){
+  public void RegistrarDireccion(String name, String latitud, String longitud, User usuario){
     Direction d = new Direction(name,latitud,longitud);
     getUser(usuario.GetName()).AddDirection(d);
   }

@@ -53,6 +53,7 @@ class Main {
             String nameuser = ID.next();
             print.println("Ingrese su Contraseña:");
             String passuser = ID.next();
+            
             if(sys.LogIn(nameuser, passuser) == true){
               usuarioApp = sys.getUser(nameuser);
               print.println("");
@@ -60,6 +61,7 @@ class Main {
               print.println("");
               flag1 = false;
               flag2 = true;
+              
             } else {
               print.println("");
               print.println("Nombre de usuario o contraseña incorrecto");
@@ -104,9 +106,9 @@ class Main {
              print.println("Ingrese el nombre de la Direccion");
             String nameDir = ID.next();
             print.println("Ingrese la latitud");
-            float lat = ID.nextFloat();
+            String lat = ID.next();
             print.println("Ingrese la longitud");
-            float lon = ID.nextFloat();
+            String lon = ID.next();
             sys.RegistrarDireccion(nameDir, lat, lon, usuarioApp);
             print.println("Direccion registrada correctamente");
             break;
