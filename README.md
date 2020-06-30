@@ -75,8 +75,8 @@ Sistema
 	- Ofrecer un menú general, con las opciones de ingreso y registro.
 	- Al realizarse el registro de un usuario, la contraseña deberá cifrarse con EncoderBase64 de Java antes de almacenarse.
 	- Al intentar ingresar al sitio se deberá comparar la contraseña con aquella almacenada. (considerar el cifrado).
-	- Generar una opción de menú para el cliente que solicite, esto tomando en cuenta el perfil alimentario del cliente. Por ejemplo, no se podrá incluir en 	los menús de un cliente vegano, platillos con ingredientes de origen animal, ni tampoco ningún platillo con tomate, a un cliente que sea alérgico al mismo.
-	- Calcular el precio a pagar de la orden de compra del menú, tomando en cuenta la suma del precio de cada ingrediente según su cantidad, más 35% de 		ganancia dela plataforma y un 13% de I.V.A
+	- Generar una opción de menú para el cliente que solicite, esto tomando en cuenta el perfil alimentario del cliente. Por ejemplo, no se podrá incluir en los menús de un cliente vegano, platillos con ingredientes de origen animal, ni tampoco ningún platillo con tomate, a un cliente que sea alérgico al mismo.
+	- Calcular el precio a pagar de la orden de compra del menú, tomando en cuenta la suma del precio de cada ingrediente según su cantidad, más 35% de ganancia dela plataforma y un 13% de I.V.A
 
 
 Modelado con UML
