@@ -1,140 +1,169 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Base64;
 
-public class Syst{
-	
-	JSONParser parser = new JSONParser();
-	Users users = parser.loadUsers();
-	Dishes dishes = parser.loadDishes();
-	Inventory inventory = parser.loadInventory();
-	
-	public void signIn(String name, String password, String type) {
-		if(getUser(name) == null) {
-			User user = new User(name, password, type);
-			users.add(user);
-		}
-		else {
-			System.out.println("Username already exists");
-		}
-	}
-	
-	
-	public boolean lognIn(String name, String password) {
-		if(getUser(name) != null && getUser(name).getPassword() == password) {
-			return true;
-		} else {
-		    return false;
-		}
-	}	
-	
-	
-	public void RegisterAddress(String name, float latitude, float longitude, User user){
-		Address address = new Address(name, latitude, longitude);
-		user.AddDirection(address);
-	}
-	
-
-	public void setFoodProfile(int food, User user, String allergy){
-		switch(food){
-	    case 1:
-	    	//Vegano
-	    	user.AddFoodProfile("Cheese");
-	    	user.AddFoodProfile("Egg");
-	    	user.AddFoodProfile("Jelly");
-		    user.AddFoodProfile("Milk");
-		    user.AddFoodProfile("Steak");
-		    user.AddFoodProfile("Pork");
-		    user.AddFoodProfile("Fish");
-		    user.AddFoodProfile("Chicken");
-		    user.AddFoodProfile("Seafood");
-		    break;
-	    case 2:
-	    	//Vegetariano
-		    user.AddFoodProfile("Jelly");
-		    user.AddFoodProfile("Steak");
-		    user.AddFoodProfile("Pork");
-		    user.AddFoodProfile("Fish");
-		    user.AddFoodProfile("Chicken");
-		    user.AddFoodProfile("Seafood");
-		      break;
-	    case 3:
-	    	//Gluten
-		    user.AddFoodProfile("Wheat");
-		    user.AddFoodProfile("Spelled");
-		    user.AddFoodProfile("Rye");
-	        user.AddFoodProfile("Barley");
-	        user.AddFoodProfile("Oats");
-		    user.AddFoodProfile("Kamut");
-		    user.AddFoodProfile("Triticale");
-		      break;
-	    case 4:
-	    	//Halal
-		    user.AddFoodProfile("Pork");
-		    user.AddFoodProfile("Alcohol");
-	        break;
-	    case 5:
-	    	//Kosher
-		    user.AddFoodProfile("Pork");
-		    user.AddFoodProfile("Seafood");
-		    break;
-	    case 6:
-	        user.AddFoodProfile(allergy);
-	        break;
-	    }
-	}
-
-	
-	public Dishes RequestMenu(User user){
-		List<String> foodProfile = new ArrayList<>();
-	    for(int i = 0;i<users.size();i++) {
-	    	if(users.get(i).getName() == user.getName()){
-	    		foodProfile = users.get(i).GetFoodProfile();
-	    		break;
-	        }
-	    }
-	    Dishes auxDish = dishes;
-
-	    for(int j=0; j< foodProfile.size(); j++) {
-	    	int b = 0;
-	    	while(b < auxDish.size()) {
-		        for(int c=0; c<auxDish.get(b).getIngredients().size(); c++) {
-		        	if(auxDish.get(b).getIngredients().get(c).getIngredient().equals(foodProfile.get(j))){
-		        		auxDish.remove(b);
-		        		b--;
-		        		break;
-		        	}
-		        }
-		        b++;
-	    	}
-	    }
-	    return auxDish;
-	}
-
-
-	public void setDish(Dish dish){
-		dishes.add(dish);
-	}
-
-	  
-    public Inventory getInventory(){
-    	return inventory;
-    }
-
+public class Syst {
   
-    public void setIngredient(Ingredient ingredient){
-    	inventory.add(ingredient);
-    }
-  
-    public User getUser(String name) {		  
-    	for(int i=0; i<users.size(); i++) {
-    		if(users.get(i).getName() == name) {
-    			return users.get(i);
-    		}
-    	}		
-    	return null;
-    }
+  private Users users = new Users();
+  private Dishes platillos = new Dishes();
+  private Inventory inventario = new Inventory();
+
+  public Syst(Users users, Dishes platillos, Inventory inventario){
+    this.users = users;
+    this.platillos = platillos;
+    this.inventario = inventario;
+  }
+
+  public Syst(){
+
+  }
+
+  public boolean LogIn(String usuario, String password){
+    User tempU = getUser(usuario);
     
-    public Users getUsers() {
-    	return users;
-	}
+    if(tempU != null){
+      if(tempU.GetPassword().equals(password)){
+        return true;
+        
+      } else {
+        return false;
+        
+      }
+      
+    } else {
+      return false;
+    } 
+  }
+
+  public void SignIn(String name, String password, int typeUser){
+    if(getUser(name) == null)
+      {
+    	byte[] passEncode = Base64.getEncoder().encode(password.getBytes());	
+        User U = new User(name, passEncode , typeUser);
+        users.add(U);
+      }
+  }
+  
+  public User getUser(String usuario){
+    for(int indice = 0; indice < users.size(); indice++)
+    {
+      if(usuario.equals(users.get(indice).GetName())){
+        return users.get(indice);
+      }
+    }
+    return null;
+  }
+
+  public List<User> getListUsers(){
+    return users;
+  }
+
+  public void RegistrarDireccion(String name, String latitud, String longitud, User usuario){
+    Address d = new Address(name,latitud,longitud);
+    getUser(usuario.GetName()).AddDirection(d);
+  }
+
+  public void CompletarPerfilAlimentario(int food, User usuario, String alergia){
+	  
+    switch(food){
+    
+      case 1:
+      //Vegano
+      getUser(usuario.GetName()).AddFoodProfile("Queso");
+      getUser(usuario.GetName()).AddFoodProfile("Huevo");
+      getUser(usuario.GetName()).AddFoodProfile("Gelatina");
+      getUser(usuario.GetName()).AddFoodProfile("Leche");
+      getUser(usuario.GetName()).AddFoodProfile("Res");
+      getUser(usuario.GetName()).AddFoodProfile("Cerdo");
+      getUser(usuario.GetName()).AddFoodProfile("Carne");
+      getUser(usuario.GetName()).AddFoodProfile("Pescado");
+      getUser(usuario.GetName()).AddFoodProfile("Pollo");
+      getUser(usuario.GetName()).AddFoodProfile("Marisco");
+      break;
+      
+      case 2:
+      //Vegetariano
+      getUser(usuario.GetName()).AddFoodProfile("Gelatina");
+      getUser(usuario.GetName()).AddFoodProfile("Res");
+      getUser(usuario.GetName()).AddFoodProfile("Cerdo");
+      getUser(usuario.GetName()).AddFoodProfile("Pescado");
+      getUser(usuario.GetName()).AddFoodProfile("Pollo");
+      getUser(usuario.GetName()).AddFoodProfile("Marisco");
+      break;
+      
+      case 3:
+      //Gluten
+      getUser(usuario.GetName()).AddFoodProfile("Trigo");
+      getUser(usuario.GetName()).AddFoodProfile("Espelta");
+      getUser(usuario.GetName()).AddFoodProfile("Centeno");
+      getUser(usuario.GetName()).AddFoodProfile("Cebada");
+      getUser(usuario.GetName()).AddFoodProfile("Avena");
+      getUser(usuario.GetName()).AddFoodProfile("Kamut");
+      getUser(usuario.GetName()).AddFoodProfile("Triticale");
+      getUser(usuario.GetName()).AddFoodProfile("Escanda");
+      break;
+      
+      case 4:
+      //Halal
+      getUser(usuario.GetName()).AddFoodProfile("Cerdo");
+      getUser(usuario.GetName()).AddFoodProfile("Alcohol");
+      break;
+      
+      case 5:
+      //Kosher
+      getUser(usuario.GetName()).AddFoodProfile("Cerdo");
+      getUser(usuario.GetName()).AddFoodProfile("Marisco");
+      break;
+      
+      case 6:
+      getUser(usuario.GetName()).AddFoodProfile(alergia);
+      break;
+    }
+  }
+
+  public Dishes SolicitarMenu(User u){
+    List<String> foodProf = new ArrayList<>();
+    for(int indice = 0;indice<users.size();indice++)
+    {
+      if(users.get(indice).GetName().equals(u.GetName())){
+        foodProf = users.get(indice).GetFoodProfile();
+        break;
+      }
+    }
+    Dishes tempPlat = platillos;
+
+    for(int a = 0; a < foodProf.size(); a++)
+    {
+      int b = 0;
+      while(b < tempPlat.size()){
+        for(int c = 0; c < tempPlat.get(b).GetIngredientes().size(); c++)
+        {
+          if(tempPlat.get(b).GetIngredientes().get(c).GetNombre().equals(foodProf.get(a))){
+            tempPlat.remove(b);
+            b = b-1;
+            break;
+          }
+        }
+        b++;
+      }
+    }
+
+    return tempPlat;
+  }
+
+
+
+  public void AgregarPlatillo(Dish dish){
+    platillos.add(dish);
+  }
+
+  public Inventory VerInventario(){
+    return inventario;
+  }
+
+  public void AgregarIngrediente(Ingredient ing){
+    inventario.add(ing);
+  }
+
+
 }

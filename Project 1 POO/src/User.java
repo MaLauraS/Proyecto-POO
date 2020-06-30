@@ -1,34 +1,37 @@
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 public class User{
 
 	private String name;
-	private String password;
-	private String type;
+	private byte[] password;
+	private int type;
 	private List<Address> adresses = new ArrayList<>();
 	private List<String> foodProfile = new ArrayList<>();
 	
-	public User(String name, String password, String type) {
+	public User(String name, byte[] passEncode, int typeUser) {
 		super();
 		this.name = name;
-		this.password = password;
-		this.type = type;
+		this.password = passEncode;
+		this.type = typeUser;
 	}
 
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getName() {
+	public String GetName() {
 		return name;
 	}
 	
-	public String getPassword() {
-		return password;
+	public String GetPassword() {
+		  byte[] decodedBytes = Base64.getDecoder().decode(password);
+		  String passDecode = new String(decodedBytes);
+		  return passDecode;
 	}
 	
-	 public String getType() {
+	 public int GetTypeUser() {
 		return type;
 	 }
 	 

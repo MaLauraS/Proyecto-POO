@@ -1,119 +1,119 @@
 {
   "Inventory": [
     {
-      "ingredient": "Onion",
+      "ingredient": "Queso",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "Bacon",
+      "ingredient": "Huevo",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "Egg",
+      "ingredient": "Gelatina",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "Tomato",
+      "ingredient": "Leche",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "Lettuce",
+      "ingredient": "Res",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "Meat",
+      "ingredient": "Pescado",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "Fish",
+      "ingredient": "Cerdo",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "Garlic",
+      "ingredient": "Pollo",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "Coriander",
+      "ingredient": "Marisco",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "Pasta",
+      "ingredient": "Trigo",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "Oil",
+      "ingredient": "Espelta",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "Rise",
+      "ingredient": "Centeno",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "Bean",
+      "ingredient": "Cebada",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "Pepper",
+      "ingredient": "Avena",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "Tuna",
+      "ingredient": "Kamut",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "SodaCracker",
+      "ingredient": "Triticale",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "LizanoSauce",
+      "ingredient": "Salsa Lizano",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "Salt",
+      "ingredient": "Escanda",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "Sugar",
+      "ingredient": "Alcohol",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "Butter",
+      "ingredient": "Galleta Soda",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "Milk",
+      "ingredient": "Atun",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "Bread",
+      "ingredient": "Arroz",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     },
     {
-      "ingredient": "Potato",
+      "ingredient": "Frijol",
       "amount": 10,
-      "price": 1.99
+      "price": 2
     }
   ],
   "Dishes": [
@@ -122,67 +122,67 @@
       "recipe": "bla bla bla",
       "ingredients": [
         {
-          "ingredient": "Rise",
+          "ingredient": "Arroz",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         },
         {
-          "ingredient": "Bean",
+          "ingredient": "Frijol",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         },
         {
-          "ingredient": "LizanoSauce",
+          "ingredient": "Salsa Lizano",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         }
       ]
     },
     {
-      "dish": "Garlic Fish",
+      "dish": "Pescado al Ajillo",
       "recipe": "bla bla bla",
       "ingredients": [
         {
-          "ingredient": "Fish",
+          "ingredient": "Pescado",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         },
         {
-          "ingredient": "Garlic",
+          "ingredient": "Ajo",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         }
       ]
     },
     {
-      "dish": "Bacon and Eggs",
+      "dish": "Arroz con Huevo",
       "recipe": "bla bla bla",
       "ingredients": [
         {
-          "ingredient": "Bacon",
+          "ingredient": "Arroz",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         },
         {
-          "ingredient": "Egg",
+          "ingredient": "Huevo",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         }
       ]
     },
     {
-      "dish": "Soda with Tuna",
+      "dish": "Soda con Atun",
       "recipe": "bla bla bla",
       "ingredients": [
         {
-          "ingredient": "SodaCracker",
+          "ingredient": "Galleta Soda",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         },
         {
-          "ingredient": "Tuna",
+          "ingredient": "Atun",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         }
       ]
     },
@@ -191,30 +191,30 @@
       "recipe": "bla bla bla",
       "ingredients": [
         {
-          "ingredient": "Rise",
+          "ingredient": "Arroz",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         },
         {
-          "ingredient": "Bean",
+          "ingredient": "Frijol",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         }
       ]
     },
     {
-      "dish": "Salad",
+      "dish": "Ensalada",
       "recipe": "bla bla bla",
       "ingredients": [
         {
-          "ingredient": "Lettuce",
+          "ingredient": "Lechuga",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         },
         {
-          "ingredient": "Tomato",
+          "ingredient": "tomate",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         }
       ]
     },
@@ -225,12 +225,12 @@
         {
           "ingredient": "Pasta",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         },
         {
-          "ingredient": "Meat",
+          "ingredient": "Carne",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         }
       ]
     },
@@ -239,19 +239,19 @@
       "recipe": "bla bla bla",
       "ingredients": [
         {
-          "ingredient": "Egg",
+          "ingredient": "Huevo",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         },
         {
-          "ingredient": "Milk",
+          "ingredient": "Leche",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         },
         {
-          "ingredient": "Oil",
+          "ingredient": "Aceite",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         }
       ]
     },
@@ -260,19 +260,19 @@
       "recipe": "bla bla bla",
       "ingredients": [
         {
-          "ingredient": "Egg",
+          "ingredient": "Huevo",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         },
         {
-          "ingredient": "Bread",
+          "ingredient": "Pan",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         },
         {
-          "ingredient": "Tomato",
+          "ingredient": "Tomate",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         }
       ]
     },
@@ -281,38 +281,38 @@
       "recipe": "bla bla bla",
       "ingredients": [
         {
-          "ingredient": "Potato",
+          "ingredient": "Papa",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         },
         {
-          "ingredient": "Milk",
+          "ingredient": "Leche",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         },
         {
-          "ingredient": "Butter",
+          "ingredient": "Mantequilla",
           "amount": 1,
-          "price": 0.99
+          "price": 1
         }
       ]
     }
   ],
   "Users": [
     {
-      "user": "customer1",
+      "user": "customer",
       "password": "1234",
-      "type": "Customer"
+      "type": 1
     },
     {
       "user": "chef",
-      "password": "4321",
-      "type": "Chef"
+      "password": "1234",
+      "type": 2
     },
     {
       "user": "admi",
-      "password": "admi",
-      "type": "Admi"
+      "password": "1234",
+      "type": 3
     }
   ]
 }

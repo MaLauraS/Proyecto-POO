@@ -1,316 +1,425 @@
 import java.util.Scanner;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Main {
-	
-	public static void main(String[] args){
-	
-		Syst syst = new Syst();
-		User user = new User();
-		Scanner scanner = new Scanner(System.in);
-		boolean enter = false;
-	    int option = 0;
-	    
-	    do{
-	    	System.out.print("\t|Restaurant App|\n"
-	    			+ "1. Sign In\n"
-	    			+ "2. Logn In\n"
-	    			+ "3. Exit\n"
-	    			+ "Enter your selection: ");
-	    	option = scanner.nextInt();
-	    	switch(option) {
-	    	case 1:
-	    		System.out.print("\n1- Customer Account\n"
-	    				+ "2- Chef Account \n"
-	    				+ "3- Admi Account\n"
-	    				+ "Enter your Account Type: \n");
-	    		int typeSelect = scanner.nextInt();
-	    		String type = "";
-	    		switch(typeSelect) {
-	    		case 1:	type = "customer";
-	    			break;	    			
-	    		case 2: type = "chef";
-	    			break;	    			
-	    		case 3: type = "admi";
-	    			break;
-	    		}
-	    		System.out.print("\n\t|Sign In|\nUsername: ");
-	    		String signName = scanner.next();
-	    		System.out.print("\nPassword: \n");
-	    		String signPassword = scanner.next();
-	    		
-	    		syst.signIn(signName, signPassword, type);
-	    		user = syst.getUser(signName);
-	    		enter = true;
-	    		System.out.println("\nAccount Successfully Registered\n");
-	    		break;
-	    		
-	    	case 2:
-	    		String lognName;
-	    		String lognPassword;
-	    		
-	    		System.out.print("\n\t|Logn In|\nUsername: ");
-	    		lognName = scanner.next();
-	    		System.out.print("\nPassword: ");
-	    		lognPassword = scanner.next();
-	    		
-	    		if(syst.lognIn(lognName, lognPassword)) {
-	    			user = syst.getUser(lognName);
-	    			enter = true;
-	    			System.out.println("\nLogn In Successfully\n");
-	    			option = 3;
-	    		}else{
-	    			System.out.println("\nUsername or Password incorrect\n");
-	    		}
-	    		break;
-	    	default: break;
-	    	}
-	    }while(option != 3);
-	    
-	    if(enter) {
-	    	switch(user.getType()) {
-	    	case "Customer":
-	    		boolean seeCostMenu = true;
-	    		do {System.out.print("\n\t|Customer Menu|\n"
-	    				+ "1. Register Address\n"
-	    				+ "2. Register Food Profile\n"
-	    				+ "3. Request Today's Menu\n"
-	    				+ "4. Exit\n"
-	    				+ "Enter your selection: ");
-	    		int customerOption = scanner.nextInt();
-	    		switch(customerOption) {
-	    		case 1:
-	    			System.out.println("\nEnter Addresses Name:\n");
-	    			String address = scanner.next();
-	    			System.out.println("\nEnter latitude:\n");
-	    			float latitude = scanner.nextLong();
-	    			System.out.println("\nEnter longitude:\n");
-	    			float longitude = scanner.nextLong();
-	    			syst.RegisterAddress(address, latitude, longitude, user);
-	    			System.out.println("\nAddress Registration Successful\n");
-	    			break;
-	    			
-	    		case 2:
-	    			String allergy = "";
-	    			boolean stay = true;
-	    			do {System.out.println("1. Vegan\n"
-	    					+ "2. Vegetarian\n"
-	    					+ "3. Gluten Free\n"
-	    					+ "4. Halal\n"
-	    					+ "5. Kosher\n"
-	    					+ "6. Allergy/Intolerance\n"
-	    					+ "Enter your Food Profile: ");
-	    			int fp_option = scanner.nextInt();
-	    			switch (fp_option) {
-	                case 1:
-	                  syst.setFoodProfile(fp_option, user, allergy);
-	                  break;
-	                case 2:
-	                  syst.setFoodProfile(fp_option, user, allergy);
-	                  break;
-	                case 3:
-	                  syst.setFoodProfile(fp_option, user, allergy);
-	                  break;
-	                case 4:
-	                  syst.setFoodProfile(fp_option, user, allergy);
-	                  break;
-	                case 5:
-	                  syst.setFoodProfile(fp_option, user, allergy);
-	                  break;
-	                case 6:
-	                  System.out.println("\nEnter singular and starting with a capital letter, the food that causes you Allergy or Intolerance: ");
-	                  allergy = scanner.next();
-	                  syst.setFoodProfile(fp_option, user, allergy);
-	                  break;
-	                default:
-	                  break;
-	    			}
-	    			System.out.println("\nDo you want to continue updating your Food Profile?\n"
-	    					+ "1. Yes\n"
-	    					+ "0. No\n");
-	    			int YN = scanner.nextInt();  	              	
-  	                if(YN == 0) {
-  	                	stay = false;
-  	                }
-	    			}while(stay);
-	    			break;
-	    			
-	    		case 3:
-	    			Dishes auxDish = syst.RequestMenu(user);
-	                for(int i=0; i < auxDish.size(); i++){
-	                  System.out.println("ID:"+i+" - " + auxDish.get(i).getName() + " - Price: " + auxDish.get(i).getPrice(auxDish.get(i).getIngredients()) + "Colones");
-	                }
-	                  System.out.println("\n*Prices not including IVA and Service Costs*\n"
-	                  		+ "Do you want to order one or more dishes?");
-	                  System.out.println("1: Yes");
-	                  System.out.println("0: No");
-	                  int YN2 = scanner.nextInt();
-	                  switch(YN2){
-	                    case 1:
-	                      float shoppingCart = 0;
-	                      boolean tempFlag2 = true;
-	                      while(tempFlag2){
-	                        System.out.println("Enter the Dish ID:");
-	                        int dishID = scanner.nextInt();
-	                        if(auxDish.isEmpty()){
-	                          System.out.println("The dish doesn't exist or is disabled");
-	                        } else {
-	                          System.out.println("Added to shopping Cart: "+auxDish.get(dishID).getName());
-	                          shoppingCart += auxDish.get(dishID).getPrice(auxDish.get(dishID).getIngredients());
-	                        }
-	                        System.out.println("Do you want to order one or more dishes?");
-	                        System.out.println("1: Yes");
-	                        System.out.println("0: No");
-	                        int YN3 = scanner.nextInt();
-	                        switch(YN3){
-	                        case 1:
-	                           tempFlag2 = true;
-	                           break;
-	                           
-	                        default:
-	                          tempFlag2 = false;
-	                           break;
-	                        }
-	                      }
-	                      shoppingCart += ((shoppingCart/100)*35);                
-	                      System.out.println("\nBill of: " + shoppingCart + " colones\n");
-	                      System.out.println("\nDo you want to pay for it?");
-	                      System.out.println("1: Yes");
-	                      System.out.println("0: No");
-	                      int YN4 = scanner.nextInt();
-	                      switch(YN4){
-	                      case 1:
-	                           System.out.println("\nOrder Done, Returning to the Menu\n");
-	                           shoppingCart = 0;
-	                           break;
-	                           
-	                     default:
-	                           System.out.println("\nDelete Shopping Cart, Returning to the Menu\nl");
-	                           shoppingCart = 0;
-	                           break;
-	                        }
-	                      break;
-	                      
-	                    default:
-	                      break;
-	                  }
-	    			break;
-	    			
-	    		case 4:
-	    			seeCostMenu = false;
-	    			break;
-	    		}
-	    		}while(seeCostMenu);
-	    		break;
-	    		
-	    	case "Chef":
-	    		boolean seeChefMenu = true;
-	    		do {
-	    			System.out.println("\n\t|Chef Menu|\n"
-	    					+ "1.Add Dish\n"
-	    					+ "2.See Inventory\n"
-	    					+ "3. Add Ingredient"
-		    				+ "4. Exit\n"
-		    				+ "Enter your selection: ");
-	    	        int InputMenu3 = scanner.nextInt();
-	    	        switch(InputMenu3){
-	    	          case 1:
-	    	            System.out.println("\nDish Name:\n");
-	    	            String nameDish = scanner.next();
-	    	            scanner.nextLine();
-	    	            Inventory ingredientDish = new Inventory(); 
-	    	            boolean flag3 = true;
-	    	            while(flag3){
-	    	              System.out.println("\nIngredient Name: ");
-	    	              String ingName = scanner.next();
-	    	              scanner.nextLine();
-	    	              System.out.println("Inventory Ingredient Account");
-	    	              float ingCant = scanner.nextFloat();
-	    	              System.out.println("Dish Ingredient Account");
-	    	              float ingCant2 = scanner.nextFloat();
-	    	              System.out.println("Ingredient Price");
-	    	              float ingPrecio = scanner.nextFloat();
-	    	              scanner.nextLine();
-	    	              Ingredient TempIng = new Ingredient(ingName, ingCant, ingPrecio);
-	    	              Ingredient TempIng2 = new Ingredient(ingName, ingCant2, ingPrecio);
-	    	              syst.inventory.add(TempIng);
-	    	              ingredientDish.add(TempIng2);
-	    	              System.out.println("Do you want to add another Ingredient to the Dish?");
-	    	              System.out.println("1: Yes");
-	    	              System.out.println("0: No");
-	    	              int YN5 = scanner.nextInt();
-	    	              switch(YN5){
-	    	              case 1:
-	    	            	  flag3 = true;
-	    	            	  break;
-	    	              default:
-	    	            	  flag3 = false;
-	    	            	  break;
-	    	              }
-	    	            }
+class Main {
+  public static void main(String[] args){
 
-	    	            System.out.println("\nDishes Recipe:\n");
-	    	            String preparacionDish = scanner.next();
-	    	            scanner.nextLine();
-	    	            Dish tempPlatillo = new Dish(nameDish, preparacionDish, ingredientDish);
-	    	            syst.setDish(tempPlatillo);
-	    	            System.out.println("\nDish loaded to the System\n");
-	    	            break;
-	    	            
-	    	          case 2:
-	    	        	Inventory tempInv = syst.getInventory();
-	    	        	System.out.println("\n\t|Inventory|");
-	    	            for(int i = 0; i < tempInv.size(); i++){
-	    	              System.out.println(tempInv.get(i).getIngredient() + " - Stock:" + tempInv.get(i).getAmount() + " - Price: " + tempInv.get(i).getPrice());
-	    	            }
-	    	            break;
-	    	            
-	    	          case 3:
-	    	              System.out.println("Ingredient Name: ");
-	    	              String ingName3 = scanner.next();
-	    	              System.out.println("Inventory Ingredient Account: ");
-	    	              float ingCant3 = scanner.nextFloat();
-	    	              System.out.println("Ingredient Price: ");
-	    	              float ingPrecio3 = scanner.nextFloat();
-	    	              Ingredient Ing3 = new Ingredient(ingName3, ingCant3, ingPrecio3);
-	    	              syst.setIngredient(Ing3);
-	    	              break;
-	    	            
-	    	          case 4:
-	    	        	  seeChefMenu = false;
-	    	              break;
-	    	        }
-	    		}while (seeChefMenu);
-	    	    break;
-	    		
-	    	case "Admi":
-	    		boolean seeAdmiMenu = true;
-	    		while (seeAdmiMenu){
-	    	        System.out.println("\n\t|Admi Menu|\n"
-	    	        		+ "1: Add Ingredient\n"
-	    	        		+ "2: Exit\n"
-	    	        		+ "Enter your selection: \n");
-	    	        int InputMenu4 = scanner.nextInt();
-	    	        switch(InputMenu4){
-	    	        case 1:
-	    	            System.out.println("Ingredient Name: ");
-	    	            String ingName4 = scanner.next();
-	    	            System.out.println("Inventory Ingredient Account: ");
-	    	            float ingCant4 = scanner.nextFloat();
-	    	            System.out.println("Ingredient Price: ");
-	    	            float ingPrecio4 = scanner.nextFloat();
-	    	            Ingredient Ing4 = new Ingredient(ingName4, ingCant4, ingPrecio4);
-	    	            syst.setIngredient(Ing4);
-	    	            break;
-	    	            
-	    	        case 2:
-	    	        	seeAdmiMenu = false;
-	    	            break;
-	    	        }
-	    	      }	    		
-	    		break;	    			
-	    	}
-	    }   
+  PrintStream print = System.out;
+  Scanner ID = new Scanner(System.in);
+  boolean flag1 = true;
+  boolean flag2 = true;
+  boolean flag0 = true;
+  
+  JSONParser parser = new JSONParser();
+  Users users = parser.loadUsers();
+  Dishes dishes = parser.loadDishes();
+  Inventory inventory = parser.loadInventory();
+  
+  Syst sys = new Syst(users, dishes, inventory);
+  User usuarioApp = new User();
+  float carrito = 0;
+
+
+  while (flag0 == true){
+
+    while (flag1 == true){
+    	
+      print.println("Restaurante App");
+      print.println("1: Registrarse");
+      print.println("2: Iniciar Sesion");
+      print.println("3: Salir");
+      print.println("Ingrese su selección: ");
+      int InputMenu = ID.nextInt();
+      print.println("");
+      
+      switch(InputMenu){
+      
+        case 1:
+            print.println("Digite:\n - 1 para Cuenta Cliente \n - 2 para Cuenta Cocinero \n - 3 para Cuenta Administrador");
+            int typeUser = ID.nextInt();
+            if (typeUser < 1 || typeUser > 3){
+              typeUser = 1;
+            }
+            print.println("Ingrese el nombre para la cuenta");
+            String name = ID.next();
+            print.println("Ingrese una contraseña para la cuenta");
+            String password = ID.next();
+            sys.SignIn(name, password, typeUser);
+            print.println("");
+            print.println("Registro de usuario completado");
+            print.println("");
+            break;
+            
+        case 2:
+            print.println("Ingrese su nombre de Usuario:");
+            String nameuser = ID.next();
+            print.println("Ingrese su Contraseña:");
+            String passuser = ID.next();
+            
+            if(sys.LogIn(nameuser, passuser) == true){
+              usuarioApp = sys.getUser(nameuser);
+              print.println("");
+              print.println("Inicio exitoso");
+              print.println("");
+              flag1 = false;
+              flag2 = true;
+              
+            } else {
+              print.println("");
+              print.println("Nombre de usuario o contraseña incorrecto");
+              print.println("");
+            }
+            break;
+            
+        case 3:
+            print.println("");
+            print.println("Saliendo...");
+            flag1 = false;
+            flag0 = false;
+            print.println("");
+            break;
+
+        default:
+            break;
+      }
     }
- }
+    switch(usuarioApp.GetTypeUser()){
+          
+    case 1:
+      while (flag2 == true){
+    	  
+        print.println("");
+        print.println("Menu de Clientes");
+        print.println("1: Registrar Direccion");
+        print.println("2: Completar Perfil Alimenticio");
+        print.println("3: Solicitar Menu del Dia");
+        print.println("4: Salir");
+        print.println("Ingrese su selección: ");
+        int InputMenu2 = ID.nextInt();
+        switch(InputMenu2){
+        
+          case 1:
+             print.println("Ingrese el nombre de la Direccion");
+            String nameDir = ID.next();
+            print.println("Ingrese la latitud");
+            String lat = ID.next();
+            print.println("Ingrese la longitud");
+            String lon = ID.next();
+            sys.RegistrarDireccion(nameDir, lat, lon, usuarioApp);
+            print.println("Direccion registrada correctamente");
+            break;
+            
+          case 2:
+            boolean tempflag = true;
+            
+            String alergia = "";
+            
+            while(tempflag == true){
+            	
+              print.println("");
+              print.println("Seleccione su Perfil Alementicio: ");
+              print.println("1: Vegano");
+              print.println("2: Vegetariano");
+              print.println("3: Libre de Gluten");
+              print.println("4: Halal");
+              print.println("5: Kosher");
+              print.println("6: Alergia o Intolerancia");
+              print.println("Elija una opcion: ");
+              int InputMenu3 = ID.nextInt();
+              
+              switch (InputMenu3) {
+              
+                case 1:
+                  sys.CompletarPerfilAlimentario(InputMenu3, usuarioApp, alergia);
+                  break;
+                  
+                case 2:
+                  sys.CompletarPerfilAlimentario(InputMenu3, usuarioApp, alergia);
+                  break;
+                  
+                case 3:
+                  sys.CompletarPerfilAlimentario(InputMenu3, usuarioApp, alergia);
+                  break;
+                  
+                case 4:
+                  sys.CompletarPerfilAlimentario(InputMenu3, usuarioApp, alergia);
+                  break;
+                  
+                case 5:
+                  sys.CompletarPerfilAlimentario(InputMenu3, usuarioApp, alergia);
+                  break;
+                  
+                case 6:
+                  print.println("");
+                  System.out.println("Ingrese en singular y comenzando en mayuscula, el alimento que le provoca Alergia o Intolerancia: ");
+                  alergia = ID.next();
+                  sys.CompletarPerfilAlimentario(InputMenu3, usuarioApp, alergia);
+                  break;
+                  
+                default:
+                  break;
+              }
 
+              print.println("");
+              System.out.println("¿Quiere seguir actualizando su Perfil Alimenticio?");
+              System.out.println("1: Si");
+              System.out.println("0: No");
+              int YN = ID.nextInt();
+              switch(YN){
+              
+                case 1:
+                  tempflag = true;
+                  alergia = "";
+                  break;
+                  
+                case 0:
+                  tempflag = false;
+                  break;
+                  
+                default:
+                  tempflag = false;
+                  break;
+              }
+            }
+            break;
+            
+          case 3:
+            Dishes tempP = sys.SolicitarMenu(usuarioApp);
+            for(int i = 0; i < tempP.size(); i++){
+              System.out.println("ID "+i+" - " + tempP.get(i).GetName() + " - Precio: " + tempP.get(i).GetPrecio(tempP.get(i).GetIngredientes()) +" Colones");
+            }
+              System.out.println("");
+              System.out.println("**Precios no incluyen IVA y Costos de Servicio");
+              System.out.println("");
+              System.out.println("¿Quiere proceder a ordenar uno o varios platillos?");
+              System.out.println("1: Si");
+              System.out.println("0: No");
+              int YN2 = ID.nextInt();
+              switch(YN2){
+              
+                case 1:
+                  boolean tempFlag2 = true;
+                  while(tempFlag2 == true){
+                	  
+                    System.out.println("Digite el ID del Platillo: ");
+                    int dishID = ID.nextInt();
+                    if(tempP.isEmpty()){
+                      System.out.println("El platillo no existe o no se encuentra disponible");
+                    } else {
+                      System.out.println("Usted a agregado al carrito: "+tempP.get(dishID).GetName());
+                      carrito = carrito + tempP.get(dishID).GetPrecio(tempP.get(dishID).GetIngredientes());
+                    }
+                    System.out.println("¿Desea agregar otro Platillo?");
+                    System.out.println("1: Si");
+                    System.out.println("0: No");
+                    int YN3 = ID.nextInt();
+                    switch(YN3){
+                    
+                      case 0:
+                       tempFlag2 = false;
+                       break;
+                       
+                      case 1:
+                       tempFlag2 = true;
+                       break;
+                       
+                       default:
+                      tempFlag2 = false;
+                       break;
+                    }
+                  }
+                  carrito = carrito + ((carrito/100)*35);
+                  carrito = carrito + ((carrito/100)*13);
+                  System.out.println("");
+                  System.out.println("Precio a pagar: "+carrito+" colones");
+                  System.out.println("");
+                  System.out.println("¿Pagar?");
+                  System.out.println("1: Si");
+                  System.out.println("0: No");
+                  int YN4 = ID.nextInt();
+                  
+                  switch(YN4){
+                  
+                      case 0:
+                       System.out.println("");
+                       System.out.println("Borrando Carrito, Regresando al Menu Principal");
+                       carrito = 0;
+                       System.out.println("");
+                       break;
+                       
+                      case 1:
+                       System.out.println("");
+                       System.out.println("Orden Realizada, Regresando al Menu Principal");
+                       carrito = 0;
+                       System.out.println("");
+                       break;
+                       
+                       default:
+                       System.out.println("");
+                       System.out.println("Borrando Carrito, Regresando al Menu Principal");
+                       carrito = 0;
+                       System.out.println("");
+                       break;
+                    }
+                  break;
+                  
+                case 0:
+                  break;
+                  
+                default:
+                  break;
+              }
+            break;
+            
+          case 4:
+            flag2 = false;
+            flag1 = true;
+           break;
+           
+          default:
+           break;
+        }
+      }
+      break;
+      
+    case 2:
+      while (flag2 == true){
+    	  
+        print.println("");
+        print.println("Menu de Cocinero");
+        print.println("1: Agregar Platillo");
+        print.println("2: Ver Inventario de Ingredientes");
+        print.println("3: Agregar Ingrediente");
+        print.println("4: Salir");
+        print.println("Ingrese su selección: ");
+        int InputMenu3 = ID.nextInt();
+        
+        switch(InputMenu3){
+        
+          case 1:
+            print.println("");
+            print.println("Ingrese el Nombre del Platillo: ");
+            String nameDish = ID.next();
+            ID.nextLine();
+            print.println("");
+            
+            Inventory ingredientDish = new Inventory();
+            List<Float> cantidadDish = new ArrayList<Float>();
+            boolean flag3 = true;
+            
+            while(flag3 == true){
+            	
+              print.println("Ingrese el Nombre del Ingrediente");
+              String ingName = ID.next();
+              ID.nextLine();
+              print.println("Ingrese la cantidad de este Ingrediente en el Inventario");
+              float ingCant = ID.nextFloat();
+              print.println("Ingrese la cantidad de este Ingrediente en el Platillo");
+              float ingCant2 = ID.nextFloat();
+              print.println("Ingrese el Precio por Medida");
+              float ingPrecio = ID.nextFloat();
+              ID.nextLine();
+              
+              Ingredient TempIng = new Ingredient(ingName, ingCant, ingPrecio);
+              cantidadDish.add(ingCant2);
+              ingredientDish.add(TempIng);
+              
+              System.out.println("¿Quiere agregar otro Ingrediente al Platillo?");
+              System.out.println("1: Si");
+              System.out.println("0: No");
+              int YN5 = ID.nextInt();
+              
+              switch(YN5){
+              
+                case 1:
+                flag3 = true;
+                break;
+                
+                case 0:
+                flag3 = false;
+                break;
+                
+                default:
+                flag3 = false;
+                break;
+              }
+            }
 
+            print.println("Describa la preparacion del platillo: ");
+            String preparacionDish = ID.next();
+            ID.nextLine();
+            print.println("");
+
+            Dish tempPlatillo = new Dish(nameDish, preparacionDish, ingredientDish);
+
+            sys.AgregarPlatillo(tempPlatillo);
+
+            print.println("Platillo Agregado al Sistema");
+            print.println("");
+            break;
+            
+          case 2:
+        	Inventory tempInv = sys.VerInventario();
+            for(int i = 0; i < tempInv.size(); i++){
+              System.out.println(tempInv.get(i).GetNombre()+" - Stock:"+tempInv.get(i).GetCantidad()+" - Precio por Medida:"+tempInv.get(i).GetPrecio());
+            }
+            break;
+            
+          case 3:
+              print.println("Ingrese el Nombre del Ingrediente");
+              String ingName3 = ID.next();
+              print.println("Ingrese la cantidad de este Ingrediente en el Inventario");
+              float ingCant3 = ID.nextFloat();
+              print.println("Ingrese el Precio por Medida");
+              float ingPrecio3 = ID.nextFloat();
+              Ingredient Ing3 = new Ingredient(ingName3, ingCant3, ingPrecio3);
+              sys.AgregarIngrediente(Ing3);
+            break;
+            
+          case 4:
+            flag2 = false;
+            flag1 = true;
+            break;
+        }
+      }
+      break;
+      
+    case 3:
+      while (flag2 == true){
+        print.println("");
+        print.println("Menu de Administrador");
+        print.println("1: Agregar Ingrediente");
+        print.println("2: Salir");
+        print.println("Ingrese su selección: ");
+        int InputMenu4 = ID.nextInt();
+        
+        switch(InputMenu4){
+        
+          case 1:
+            print.println("Ingrese el Nombre del Ingrediente");
+            String ingName4 = ID.next();
+            print.println("Ingrese la cantidad de este Ingrediente en el Inventario");
+            float ingCant4 = ID.nextFloat();
+            print.println("Ingrese el Precio por Medida");
+            float ingPrecio4 = ID.nextFloat();
+            Ingredient Ing4 = new Ingredient(ingName4, ingCant4, ingPrecio4);
+            sys.AgregarIngrediente(Ing4);
+            break;
+            
+          case 2:
+            flag2 = false;
+            flag1 = true;
+            break;
+        }
+      }
+      break;
+      
+    default:
+      break;
+    }
+  }
+  ID.close();
+} 
+}

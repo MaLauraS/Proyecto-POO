@@ -1,12 +1,13 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.Base64;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
-public class JSONParser {
+public class JSONParser  {
 	
 	private File file;
 	private ObjectMapper mapper;
@@ -37,7 +38,6 @@ public class JSONParser {
 				String name = ingredient.get("ingredient").asText();
 				float amount = ingredient.get("amount").asLong(); 
 				float price = ingredient.get("price").asLong(); 
-				
 				Ingredient ingre = new Ingredient(name, amount, price);
 				inventory.add(ingre);
 			}
@@ -55,14 +55,13 @@ public class JSONParser {
 				JsonNode dish = dishs.get(i);
 				String name = dish.get("dish").asText();
 				String recipe = dish.get("recipe").asText();
-				ArrayNode ingredients = (ArrayNode) dish.get("ingredients");
+				ArrayNode ingredients = (ArrayNode) dish.get("ingredients");			
 				if(ingredients != null) {
 					for(int j=0; j<ingredients.size(); j++) {
 						JsonNode ingredient = ingredients.get(j);
 						String nick = ingredient.get("ingredient").asText();
 						float amount = ingredient.get("amount").asLong(); 
 						float price = ingredient.get("price").asLong(); 
-						
 						Ingredient ingre = new Ingredient(nick, amount, price);
 						inventory.add(ingre);
 					}
@@ -84,9 +83,9 @@ public class JSONParser {
 				JsonNode user = nodeuser.get(i);
 				String name = user.get("user").asText();
 				String password = user.get("password").asText();
-				String type = user.get("type").asText();
-				
-				User nUser = new User(name, password, type);
+				byte[] passEncode = Base64.getEncoder().encode(password.getBytes());	
+				int type = user.get("type").asInt();
+				User nUser = new User(name, passEncode, type);
 				users.add(nUser);
 			}
 		}

@@ -13,7 +13,7 @@ public class Dish {
 		this.ingredients = ingredients;
 	}
 	
-	public String getName() {
+	public String GetName() {
 		return name;
 	}
 
@@ -29,7 +29,7 @@ public class Dish {
 		this.recipe = recipe;
 	}
 
-	public Inventory getIngredients() {
+	public Inventory GetIngredientes() {
 		return ingredients;
 	}
 
@@ -37,10 +37,10 @@ public class Dish {
 		this.ingredients = ingredients;
 	}
 		
-	public float getPrice(Inventory inventory) {
+	public float GetPrecio(Inventory inventory) {
 		float cost = 0;
 		for(int i=0; i<inventory.size(); i++) {
-			cost += inventory.get(i).getPrice() * inventory.get(i).getAmount();
+			cost += inventory.get(i).GetPrecio() * inventory.get(i).GetCantidad();
 		}
 		return cost;
 	}

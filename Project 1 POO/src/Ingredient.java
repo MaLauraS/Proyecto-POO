@@ -16,12 +16,16 @@ public class Ingredient {
 		return name;
 	}
 	
-	public float getAmount() {
+	public float GetCantidad() {
 		return amount;
 	}
 	
-	public float getPrice() {
+	public float GetPrecio() {
 		return price;
+	}
+	
+	public String GetNombre() {
+		return name;
 	}
 	
 	public void takeAmount(float amount) {
